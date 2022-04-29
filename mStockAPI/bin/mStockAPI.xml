@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mStockAPI</name>
+    </assembly>
+    <members>
+        <member name="M:mStockAPI.Controllers.AuthController.Post(mStockAPI.DTOs.LoginRequest)">
+            <summary>
+            Validates credentials against the credentials stored in database
+            </summary>
+            <param name="model">Login credentials</param>
+            <response code="200">Authentication successful</response>
+            <response code="400">Authentication failed or Model validation failure</response>
+        </member>
+        <member name="M:mStockAPI.Controllers.CompaniesController.Get">
+            <summary>
+            Retreives all companies details
+            </summary>
+            <returns></returns>
+            <response code="200"></response>
+        </member>
+        <member name="M:mStockAPI.Controllers.StocksController.Get(System.Int32,System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            Retreives the stock details of selected companies in given date range
+            </summary>
+            <returns>An array of stock details</returns>
+            <response code="200">Stock details of selected companies</response>
+        </member>
+        <member name="M:mStockAPI.Controllers.WatchListController.Get(System.Int32)">
+            <summary>
+            Retreives company details from watch list of the user 
+            </summary>
+            <param name="userid">UserId whose watch list to be fetched</param>
+            <returns></returns>
+            <response code="200"></response>
+            <response code="400">Invalid userid</response>
+        </member>
+        <member name="M:mStockAPI.Controllers.WatchListController.Post(mStockAPI.DTOs.WatchListRequest)">
+            <summary>
+            Add a company to user's watch list
+            </summary>
+            <param name="model">Company and user details to save</param>
+            <returns></returns>
+            <response code="201">Added to watch list</response>
+            <response code="400">Invalid company or user</response>
+            <response code="409">Already present in watch list</response>
+            <response code="500">Unable to remove from list</response>
+        </member>
+        <member name="M:mStockAPI.Controllers.WatchListController.Delete(mStockAPI.DTOs.WatchListRequest)">
+            <summary>
+            Removes a company to user's watch list
+            </summary>
+            <param name="model">Company and user details to remove</param>
+            <returns></returns>
+            <response code="204">Removed from watch list</response>
+            <response code="500">Unable to remove from the list</response>
+        </member>
+    </members>
+</doc>
